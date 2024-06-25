@@ -1,0 +1,175 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class MainActivity extends JFrame implements ActionListener {
+
+    // UI Components
+    private JLabel titleLabel;
+    private JTextField fromField;
+    private JTextField toField;
+    private JButton searchButton;
+    private JComboBox<String> departureDateComboBox;
+    private JComboBox<String> returnDateComboBox;
+    private JButton antarKotaButton;
+    private JButton lokalButton;
+    private JButton commuterButton;
+    private JButton lrtButton;
+    private JButton kaiPayButton;
+    private JButton scanButton;
+    private JButton topUpButton;
+    private JButton riwayatButton;
+    private JButton premiumButton;
+
+    // Data for UI elements
+    private String[] departureDates = {"8 April 2024"};
+    private String[] returnDates = {"8 April 2024"};
+
+    public MainActivity() {
+        // Set up the JFrame
+        setTitle("Train Ticket App");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+
+        // Create UI components
+        titleLabel = new JLabel("Train Ticket App", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+
+        fromField = new JTextField("JAKARTA");
+        fromField.setEditable(false);
+
+        toField = new JTextField("SEMARANG");
+        toField.setEditable(false);
+
+        searchButton = new JButton("SEARCH");
+        searchButton.addActionListener(this);
+
+        departureDateComboBox = new JComboBox<>(departureDates);
+        returnDateComboBox = new JComboBox<>(returnDates);
+
+        antarKotaButton = new JButton("Antar Kota");
+        antarKotaButton.addActionListener(this);
+
+        lokalButton = new JButton("Lokal");
+        lokalButton.addActionListener(this);
+
+        commuterButton = new JButton("Commuter Line");
+        commuterButton.addActionListener(this);
+
+        lrtButton = new JButton("LRT");
+        lrtButton.addActionListener(this);
+
+        kaiPayButton = new JButton("KAIPay");
+        kaiPayButton.addActionListener(this);
+
+        scanButton = new JButton("Scan");
+        scanButton.addActionListener(this);
+
+        topUpButton = new JButton("Top Up");
+        topUpButton.addActionListener(this);
+
+        riwayatButton = new JButton("Riwayat");
+        riwayatButton.addActionListener(this);
+
+        premiumButton = new JButton("Premium");
+        premiumButton.addActionListener(this);
+
+        // Create panels for UI organization
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new FlowLayout());
+        topPanel.add(titleLabel);
+
+        JPanel fromPanel = new JPanel();
+        fromPanel.setLayout(new FlowLayout());
+        fromPanel.add(new JLabel("FROM"));
+        fromPanel.add(fromField);
+
+        JPanel toPanel = new JPanel();
+        toPanel.setLayout(new FlowLayout());
+        toPanel.add(new JLabel("TO"));
+        toPanel.add(toField);
+
+        JPanel datePanel = new JPanel();
+        datePanel.setLayout(new GridLayout(1, 2));
+        datePanel.add(new JLabel("DEPARTURE"));
+        datePanel.add(new JLabel("RETURN"));
+        datePanel.add(departureDateComboBox);
+        datePanel.add(returnDateComboBox);
+
+        JPanel searchPanel = new JPanel();
+        searchPanel.setLayout(new FlowLayout());
+        searchPanel.add(searchButton);
+
+        JPanel trainTypePanel = new JPanel();
+        trainTypePanel.setLayout(new FlowLayout());
+        trainTypePanel.add(antarKotaButton);
+        trainTypePanel.add(lokalButton);
+        trainTypePanel.add(commuterButton);
+        trainTypePanel.add(lrtButton);
+
+        JPanel kaiPayPanel = new JPanel();
+        kaiPayPanel.setLayout(new FlowLayout());
+        kaiPayPanel.add(kaiPayButton);
+        kaiPayPanel.add(scanButton);
+        kaiPayPanel.add(topUpButton);
+        kaiPayPanel.add(riwayatButton);
+
+        JPanel premiumPanel = new JPanel();
+        premiumPanel.setLayout(new FlowLayout());
+        premiumPanel.add(premiumButton);
+
+        // Add panels to the JFrame
+        add(topPanel, BorderLayout.NORTH);
+        add(fromPanel, BorderLayout.WEST);
+        add(toPanel, BorderLayout.EAST);
+        add(datePanel, BorderLayout.CENTER);
+        add(searchPanel, BorderLayout.SOUTH);
+        add(trainTypePanel, BorderLayout.PAGE_START);
+        add(kaiPayPanel, BorderLayout.LINE_START);
+        add(premiumPanel, BorderLayout.LINE_END);
+
+        // Set visible
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == searchButton) {
+            // Implement search functionality here
+            System.out.println("Search button clicked");
+        } else if (e.getSource() == antarKotaButton) {
+            // Implement Antar Kota button functionality here
+            System.out.println("Antar Kota button clicked");
+        } else if (e.getSource() == lokalButton) {
+            // Implement Lokal button functionality here
+            System.out.println("Lokal button clicked");
+        } else if (e.getSource() == commuterButton) {
+            // Implement Commuter Line button functionality here
+            System.out.println("Commuter Line button clicked");
+        } else if (e.getSource() == lrtButton) {
+            // Implement LRT button functionality here
+            System.out.println("LRT button clicked");
+        } else if (e.getSource() == kaiPayButton) {
+            // Implement KAIPay button functionality here
+            System.out.println("KAIPay button clicked");
+        } else if (e.getSource() == scanButton) {
+            // Implement Scan button functionality here
+            System.out.println("Scan button clicked");
+        } else if (e.getSource() == topUpButton) {
+            // Implement Top Up button functionality here
+            System.out.println("Top Up button clicked");
+        } else if (e.getSource() == riwayatButton) {
+            // Implement Riwayat button functionality here
+            System.out.println("Riwayat button clicked");
+        } else if (e.getSource() == premiumButton) {
+            // Implement Premium button functionality here
+            System.out.println("Premium button clicked");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Tiket());
+    }
+}
